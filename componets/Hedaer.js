@@ -1,4 +1,6 @@
-import { Logo } from '../statics/svgs'
+import styled from 'styled-components'
+
+import { Logo } from './Icons'
 
 const Header = () => (
   <Wrapper>

@@ -1,5 +1,22 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet, injectGlobal } from 'styled-components'
+
+injectGlobal`
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    text-rendering: optimizeSpeed;
+    font-family: 'roboto';
+  }
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+    font-family: 'roboto';
+  }
+`
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {

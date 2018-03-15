@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Header from '../componets/Hedaer'
+import Categories from '../componets/Categories'
 
 const App = () => (
   <Countainer>
@@ -9,6 +10,9 @@ const App = () => (
       <Header />
     </Wrapper>
     <Line />
+    <Wrapper>
+      <Categories />
+    </Wrapper>
   </Countainer>
 )
 

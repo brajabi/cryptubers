@@ -1,21 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Provider, Client } from 'urql'
 
 import Header from '../componets/Hedaer'
 import Categories from '../componets/Categories'
 import MostPopular from '../componets/MostPopular'
 
+const client = new Client({
+  url: 'https://api.graph.cool/simple/v1/cj71mxvox2lvz0197vgwbtfs3',
+})
+
 const App = () => (
-  <Countainer>
-    <Wrapper>
-      <Header />
-    </Wrapper>
-    <Line />
-    <Wrapper>
-      <Categories />
-      <MostPopular />
-    </Wrapper>
-  </Countainer>
+  <Provider client={client}>
+    <Countainer>
+      <Wrapper>
+        <Header />
+      </Wrapper>
+      <Line />
+      <Wrapper>
+        <Categories />
+        <MostPopular />
+      </Wrapper>
+    </Countainer>
+  </Provider>
 )
 
 export default App

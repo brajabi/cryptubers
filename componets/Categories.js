@@ -27,9 +27,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #936aeb 0%, rgba(255, 255, 255, 0) 100%),
+  background: linear-gradient(360deg, #936aeb 0%, rgba(255, 255, 255, 0) 100%),
     #46b7e8;
   margin-top: 40px;
+  border-radius: 10px;
 `
 
 const ListCountainer = styled.div`
@@ -52,4 +53,5 @@ const ListItem = styled.a`
   text-decoration: none;
   font-weight: 400;
   font-size: 15px;
+  border-radius: 10px;
 `

@@ -1,4 +1,15 @@
 import styled from 'styled-components'
+import { Connect, query } from 'urql'
+
+const QueryString = `
+  query{
+    allLinks {
+      id
+      description
+      url
+    }
+  }
+`
 
 const ChannelFields = () => (
   <thead>
@@ -45,48 +56,36 @@ const MostPopular = () => (
     <TitleCountainer>
       <Title>⭐ Most Populars</Title>
     </TitleCountainer>
+    <div />
     <ChannelList>
       <Table>
         <ChannelFields />
-        <ChannelRow
-          image="https://picsum.photos/75/75?random&image=0"
-          title="Keith Wareing"
-          categorie="ICO & Crypto Advice"
-          sub="10M"
-          views="1,330,00"
-          likes="1,011"
-          popularity="3"
-          lastVideo="2 hours ago"
-        />
-        <ChannelRow
-          image="https://picsum.photos/75/75?random&image=2"
-          title="Keith Wareing"
-          categorie="ICO & Crypto Advice"
-          sub="10M"
-          views="1,330,00"
-          likes="1,011"
-          popularity="3"
-          lastVideo="2 hours ago"
-        />
-        <ChannelRow
-          image="https://picsum.photos/75/75?random&image=3"
-          title="Keith Wareing"
-          categorie="ICO & Crypto Advice"
-          sub="10M"
-          views="1,330,00"
-          likes="1,011"
-          popularity="3"
-          lastVideo="2 hours ago"
-        />
-        <ChannelRow
-          image="https://picsum.photos/75/75?random&image=4"
-          title="Keith Wareing"
-          categorie="ICO & Crypto Advice"
-          sub="10M"
-          views="1,330,00"
-          likes="1,011"
-          popularity="3"
-          lastVideo="2 hours ago"
+        <Connect
+          query={query(QueryString)}
+          children={({ loaded, data }) => {
+            return loaded === false ? (
+              <tr>
+                <td colspan="7">Loading</td>
+              </tr>
+            ) : (
+              data.allLinks.map(item => (
+                <ChannelRow
+                  key={item.id}
+                  image={
+                    'https://picsum.photos/75/75?random&image=' +
+                    Math.floor(Math.random() * 10)
+                  }
+                  title={item.description}
+                  categorie="ICO & Crypto Advice"
+                  sub={Math.floor(Math.random() * 10) + 1 + 'M'}
+                  views="1,330,00"
+                  likes="1,011"
+                  popularity="3"
+                  lastVideo="2 hours ago"
+                />
+              ))
+            )
+          }}
         />
       </Table>
     </ChannelList>

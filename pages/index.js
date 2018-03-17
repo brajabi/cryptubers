@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Header from '../componets/Hedaer'
 import Categories from '../componets/Categories'
+import MostPopular from '../componets/MostPopular'
 
 const App = () => (
   <Countainer>
@@ -12,6 +13,7 @@ const App = () => (
     <Line />
     <Wrapper>
       <Categories />
+      <MostPopular />
     </Wrapper>
   </Countainer>
 )

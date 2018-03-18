@@ -10,7 +10,6 @@ const QueryString = `
     }
   }
 `
-
 const ChannelFields = () => (
   <thead>
     <tr>

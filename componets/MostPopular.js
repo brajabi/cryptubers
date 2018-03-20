@@ -3,10 +3,10 @@ import { Connect, query } from 'urql'
 
 const QueryString = `
   query{
-    allLinks {
+    allChannels {
       id
-      description
-      url
+      avatar
+      subscribers
     }
   }
 `
